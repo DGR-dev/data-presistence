@@ -20,6 +20,8 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadSaveGame();
+        
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -35,7 +37,7 @@ public class MainManager : MonoBehaviour
             }
         }
     }
-
+    
     private void Update()
     {
         if (!m_Started)
@@ -70,14 +72,26 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
-        SaveUserScore();
+        SendUserScore();
+        SaveGame();
     }
-
+    
     #region Persistence
-    private void SaveUserScore()
+    private void SendUserScore()
     {
         PersistenceManager.Instance.userScore = m_Points;
     }
+    
+    private void SaveGame()
+    {
+       PersistenceManager.Instance.SaveUserData();
+    }
+    
+    private void LoadSaveGame()
+    {
+        PersistenceManager.Instance.LoadUserData();
+    }
+
     #endregion
 
 }

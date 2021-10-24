@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 public class PersistenceManager : MonoBehaviour
@@ -31,17 +32,36 @@ public class PersistenceManager : MonoBehaviour
 
     #region Data Persistence
 
-    private void SaveUserID()
+    [System.Serializable]
+    public class SaveData
     {
-        
-       
-    }
-
-    private void SaveUserScore()
-    {
-        
-        
+        public string userID;
+        public int userScore;
     }
     
+    
+    public void SaveUserData()
+    {
+        SaveData data = new SaveData();
+        data.userID = userID;
+        data.userScore = userScore;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+
+    
+    public void LoadUserData()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            userID = data.userID;
+            userScore = data.userScore;
+        }
+    }
     #endregion
 }

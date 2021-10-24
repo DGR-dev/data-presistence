@@ -1024,11 +1024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 401.75
+      value: 325
       objectReference: {fileID: 0}
     - target: {fileID: 4221187171525053811, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_enableWordWrapping

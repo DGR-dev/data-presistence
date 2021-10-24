@@ -12,15 +12,10 @@ public class MenuUIManager : MonoBehaviour
     
     public void StartGame()
     {
-        SaveUserID();
+        SendUserID();
         SceneManager.LoadScene(1);
     }
-
-    private void SaveUserID()
-    {
-        PersistenceManager.Instance.userID = userID.text;
-    }
-
+    
     public void ExitGame()
     {
 #if UNITY_EDITOR
@@ -29,4 +24,14 @@ public class MenuUIManager : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    
+    #region Persistence
+    private void SendUserID()
+    {
+        PersistenceManager.Instance.userID = userID.text;
+    }
+    #endregion
+
+
 }
