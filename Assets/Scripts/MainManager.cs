@@ -10,18 +10,19 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public GameObject GameOverText;
+    public Text bestScoreText;
+    public int highScore;
+    
     
     private bool m_Started = false;
     private int m_Points;
-    
     private bool m_GameOver = false;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        LoadSaveGame();
-        
+        ShowCurUserScore();
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -36,8 +37,14 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+        bestScoreText.text = $"{PersistenceManager.Instance.bestUser} has the HighScore of {PersistenceManager.Instance.highScore} Points";
     }
-    
+
+    private void ShowCurUserScore()
+    {
+        ScoreText.text = $"{PersistenceManager.Instance.curUser} has a Score of : {m_Points}";
+    }
+
     private void Update()
     {
         if (!m_Started)
@@ -65,33 +72,29 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        ScoreText.text = $"Score : {m_Points}";
+        ShowCurUserScore();
     }
 
     public void GameOver()
     {
+        CheckForHighScore();
         m_GameOver = true;
         GameOverText.SetActive(true);
-        SendUserScore();
-        SaveGame();
-    }
-    
-    #region Persistence
-    private void SendUserScore()
-    {
-        PersistenceManager.Instance.userScore = m_Points;
-    }
-    
-    private void SaveGame()
-    {
-       PersistenceManager.Instance.SaveUserData();
-    }
-    
-    private void LoadSaveGame()
-    {
-        PersistenceManager.Instance.LoadUserData();
     }
 
+    #region Persistence
+    private void CheckForHighScore()
+    {
+       highScore = PersistenceManager.Instance.highScore;
+        
+        if (m_Points > highScore)
+        {
+            highScore = m_Points;
+            PersistenceManager.Instance.highScore = highScore;
+            PersistenceManager.Instance.bestUser = PersistenceManager.Instance.curUser;
+            PersistenceManager.Instance.SaveUser();
+        }
+    }
     #endregion
 
 }

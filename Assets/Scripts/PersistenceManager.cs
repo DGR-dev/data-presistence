@@ -5,19 +5,12 @@ public class PersistenceManager : MonoBehaviour
 {
     public static PersistenceManager Instance;
     
-    public string userID;
-    public int userScore;
-    
-    public string bestUserID;
-    public int bestUserScore;
+    public string curUser;
+    public string bestUser;
+    public int highScore;
     
     
     private void Awake()
-    {
-        SingletonSetup();
-    }
-
-    private void SingletonSetup()
     {
         if (Instance != null)
         {
@@ -29,29 +22,31 @@ public class PersistenceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        LoadUser();
+    }
 
     #region Data Persistence
-
     [System.Serializable]
     public class SaveData
     {
-        public string userID;
-        public int userScore;
+        public string bestUser;
+        public int highScore;
     }
     
-    
-    public void SaveUserData()
+    public void SaveUser()
     {
         SaveData data = new SaveData();
-        data.userID = userID;
-        data.userScore = userScore;
+        data.bestUser = bestUser;
+        data.highScore = highScore;
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
     
-    public void LoadUserData()
+    public void LoadUser()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -59,8 +54,8 @@ public class PersistenceManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            userID = data.userID;
-            userScore = data.userScore;
+            bestUser = data.bestUser;
+            highScore = data.highScore;
         }
     }
     #endregion

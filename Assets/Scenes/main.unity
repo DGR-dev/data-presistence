@@ -930,6 +930,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 396364345639273536, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345639273536, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345639273537, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 396364345835598163, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1018,17 +1030,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 396364345910666453, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345910666453, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345910666453, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345910666474, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -371
+      objectReference: {fileID: 0}
+    - target: {fileID: 396364345910666474, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.1026716
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.9075217
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.1026716
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.9075217
+      objectReference: {fileID: 0}
     - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 163.7351
       objectReference: {fileID: 0}
     - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1831841258746233500, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 325
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4221187171525053811, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
       propertyPath: m_enableWordWrapping
@@ -1056,6 +1104,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+--- !u!114 &396364345719747318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 396364345910666453, guid: c3520d74bad39bd03bb471badffdb64e, type: 3}
+  m_PrefabInstance: {fileID: 396364345719747317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1000674102791697387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1189,6 +1248,10 @@ PrefabInstance:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 474497238}
+    - target: {fileID: 7790029484017145560, guid: e2d3d15cc725cbe929ef9dc1875dad06, type: 3}
+      propertyPath: bestScoreText
+      value: 
+      objectReference: {fileID: 396364345719747318}
     - target: {fileID: 7790029484017145562, guid: e2d3d15cc725cbe929ef9dc1875dad06, type: 3}
       propertyPath: m_Name
       value: MainManager
